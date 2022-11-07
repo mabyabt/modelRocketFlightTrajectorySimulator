@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 
 totalMass = 1
-dryMass = 0.906
-burnTime = 3.4
-totalImpulse = 49.6
-propellantMass = 0.064
+dryMass = 0.728
+burnTime = 2.1 #klima d9 e7 engine
+totalImpulse = 19.6
+propellantMass = 0.0282
 
 
 averageThrust = totalImpulse/burnTime
