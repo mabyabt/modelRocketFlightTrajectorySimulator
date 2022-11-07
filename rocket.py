@@ -3,6 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+def integrateGraph(time, array):
+    pass
+    resArray = [0]
+    for n in range(0, len(time)-1):
+        resArray.append(
+        resArray[-1] + 0.5*(array[n+1] + array[n])*(time[n+1] -
+        time[n])
+    )
+    return np.array(resArray)
+
 totalMass = 1
 dryMass = 0.728
 burnTime = 2.1 #klima d9 e7 engine
@@ -21,20 +31,13 @@ mass = np.append(np.repeat(totalMass, index) - time[0:index] * massFlowRate, np.
 
 
 acceleration = thrust/mass - 9.81
+velocity = integrateGraph(time, acceleration)
+displacement = integrateGraph(time, velocity)
 
 plt.style.use('dark_background')
-plt.plot(time, acceleration)
-plt.ylabel("Acceleration")
-plt.xlabel("Time")
+plt.plot(displacement)
+plt.ylabel("Time")
+plt.xlabel("Velocity")
 plt.show()
 
 
-def integrateGraph(time, array):
-    pass
-    resArray = [0]
-    for n in range(0, len(time)-1):
-        resArray.append(
-        resArray[-1] + 0.5*(array[n+1] + array[n])*(time[n+1] -
-        time[n])
-    )
-    return np.array(resArray)
